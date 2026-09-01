@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/*
+  Brand tokens sampled from src/assets/LOGO.jpg and src/assets/LOGO png.png
+  (Task 0.2). Dominant buckets vs Plan.md §5 approximations:
+
+  brand-maroon       #982040  (plan ~#8B1E3F) — A-letter / wordmark
+  brand-maroon-dark  #721830  darkened from sampled maroon for hover
+  brand-gold         #B0A888  (plan ~#B5A56C) — W, globe, orbital arcs
+  brand-gold-light   #D4D0B8  lighter gold from logo highlights
+  neutral-ink / white / gray kept as Plan.md §5 (not in the logo mark)
+
+  Tailwind v4: tokens live in @theme (no tailwind.config.js in this scaffold).
+*/
+@theme {
+  --color-brand-maroon: #982040;
+  --color-brand-maroon-dark: #721830;
+  --color-brand-gold: #b0a888;
+  --color-brand-gold-light: #d4d0b8;
+  --color-neutral-ink: #1a1a1a;
+  --color-neutral-white: #ffffff;
+  --color-neutral-gray: #f5f4f1;
+
+  --font-heading: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-neutral-white);
+  color: var(--color-neutral-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  background: var(--color-brand-maroon);
+  color: var(--color-neutral-white);
+  padding: 0.5rem 1rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.clip-angle-br {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-brand-gold),
+    transparent
+  );
+}
