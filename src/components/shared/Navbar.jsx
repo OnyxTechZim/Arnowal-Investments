@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { site } from "../../content/site.js";
@@ -6,9 +6,21 @@ import Logo from "./Logo.jsx";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-brand-gold-light bg-neutral-white/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-40 border-b bg-neutral-white/95 backdrop-blur transition-shadow duration-300 ${
+        scrolled ? "border-brand-gold-light shadow-[0_1px_12px_rgba(26,26,26,0.08)]" : "border-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link to="/" className="shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onClick={() => setOpen(false)}>
           <Logo className="h-12 w-auto sm:h-14" />
@@ -20,8 +32,10 @@ export default function Navbar() {
               to={item.to}
               end={item.to === "/"}
               className={({ isActive }) =>
-                `text-sm font-semibold uppercase tracking-[0.14em] ${
-                  isActive ? "text-brand-maroon" : "text-neutral-ink/70 hover:text-brand-maroon"
+                `relative text-sm font-semibold uppercase tracking-[0.14em] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-brand-gold after:transition-all after:duration-300 after:content-[''] hover:after:w-full ${
+                  isActive
+                    ? "text-brand-maroon after:w-full"
+                    : "text-neutral-ink/70 hover:text-brand-maroon after:w-0"
                 }`
               }
             >

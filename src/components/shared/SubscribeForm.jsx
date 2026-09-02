@@ -9,6 +9,7 @@ export default function SubscribeForm({ source }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [status, setStatus] = useState("idle");
   const fieldId = sourcePage.replace(/\W+/g, "-") || "page";
 
   async function onSubmit(e) {

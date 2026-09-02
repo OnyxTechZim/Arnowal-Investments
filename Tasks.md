@@ -11,9 +11,11 @@ acceptance criteria. Claim a task by writing your agent name/ID next to
 
 ## Phase 0 — Project Setup (blocks everything else)
 
-### Task 0.1 — Repo scaffold  [x] (completed manually; Cursor agent verified)
+### Task 0.1 — Repo scaffold [x] (completed manually; Cursor agent verified)
+
 **Owner:** Agent A
 **Depends on:** none
+
 - Initialize Vite + React project.
 - Install and configure Tailwind CSS, React Router, lucide-react.
 - Set up folder structure:
@@ -31,9 +33,11 @@ acceptance criteria. Claim a task by writing your agent name/ID next to
   structure matches above.
 - **Notes:** `.env.example` was missing at verification; added during Task 0.2.
 
-### Task 0.2 — Design tokens  [x] (Cursor agent)
+### Task 0.2 — Design tokens [x]
+
 **Owner:** Agent A
 **Depends on:** 0.1
+
 - Extract exact colors from `LOGO.jpg`/`LOGO_png.png` (confirm against §5 of
   Plan.md — adjust the approximate hex values to the true sampled colors).
 - Add all tokens from Plan.md §5 to `tailwind.config.js` theme extension.
@@ -47,9 +51,11 @@ acceptance criteria. Claim a task by writing your agent name/ID next to
   `<Logo />` (no SVG source). Fonts: Playfair Display + Inter. Preview in `App.jsx`
   until Task 0.3 replaces it.
 
-### Task 0.3 — Routing shell  [x] (Cursor agent)
+### Task 0.3 — Routing shell [x]
+
 **Owner:** Agent A
 **Depends on:** 0.1
+
 - Set up React Router with all routes from Plan.md §6 (stub pages with a
   placeholder heading each).
 - **Acceptance:** every route in the sitemap navigates without a 404/blank
@@ -61,10 +67,12 @@ acceptance criteria. Claim a task by writing your agent name/ID next to
 
 ## Phase 1 — Shared Components
 
-### Task 1.1 — Decide services routing structure  [x] (Cursor agent)
+### Task 1.1 — Decide services routing structure [x]
+
 **Owner:** Agent A (decision) — document the answer at the top of
 `src/content/services.ts`
 **Depends on:** 0.3
+
 - Decide: separate routes per service (`/services/hr`, etc.) vs anchored
   sections on one `/services` page. Default recommendation: separate routes.
 - **Acceptance:** decision documented; routing updated to match if changed
@@ -72,18 +80,22 @@ acceptance criteria. Claim a task by writing your agent name/ID next to
 - **Notes:** Separate routes. Documented in `src/content/services.js` (JS
   scaffold, not `.ts`). Used Plan.md default rather than blocking.
 
-### Task 1.2 — Layout components  [x] (Cursor agent)
+### Task 1.2 — Layout components [x]
+
 **Owner:** Agent B
 **Depends on:** 0.2, 0.3
+
 - Build `<Navbar />` (logo + links to all top-level pages, mobile menu),
   `<Footer />` (contact info, service links, `<SubscribeForm />` slot, social
   links placeholder), `<PageLayout />` wrapper.
 - **Acceptance:** Navbar/Footer render on every route via `PageLayout`;
   mobile menu works at narrow viewport widths.
 
-### Task 1.3 — Reusable UI primitives  [x] (Cursor agent)
+### Task 1.3 — Reusable UI primitives [x]
+
 **Owner:** Agent B
 **Depends on:** 0.2
+
 - Build in `src/components/shared/`: `<Button />` (primary/secondary
   variants using brand colors), `<SectionHeading />`, `<Card />`,
   `<ServiceCard />` (icon + title + summary + link).
@@ -93,9 +105,11 @@ acceptance criteria. Claim a task by writing your agent name/ID next to
   visually matches brand system in Plan.md §5, not generic/default Tailwind
   styling.
 
-### Task 1.4 — SubscribeForm component  [x] (Cursor agent)
+### Task 1.4 — SubscribeForm component [x]
+
 **Owner:** Agent B
 **Depends on:** 0.2
+
 - Build `<SubscribeForm />`: email (required) + name (optional) fields,
   client-side validation, loading/success/error states.
 - POST to `import.meta.env.VITE_SUBSCRIBE_ENDPOINT`. If the env var is
@@ -106,6 +120,9 @@ acceptance criteria. Claim a task by writing your agent name/ID next to
   valid submit shows a success state; component works standalone (used in
   Footer and on `/contact`).
 - **Notes:** Mock clearly labelled in UI when env is unset (`src/lib/subscribe.js`).
+  QA (Task 4.x) found the `status` state hook was never declared — submit threw
+  `setStatus is not defined`. Fixed in `SubscribeForm.jsx`; end-to-end verified
+  in headless Chrome (invalid email → inline error; valid → success state).
 
 ---
 
@@ -116,9 +133,11 @@ merged. All copy should be written from scratch to reflect ACI's actual
 service lines — do not use lorem ipsum in the final version; placeholder
 copy is acceptable only as an intermediate commit.
 
-### Task 2.1 — Home page  [x] (Cursor agent)
+### Task 2.1 — Home page [x]
+
 **Owner:** Agent C
 **Depends on:** 1.2, 1.3, 1.4
+
 - Hero section (headline + one-line value prop + primary CTA).
 - Services overview: 5 `<ServiceCard />`s (Consultancy, HR, Auditing,
   Marketing, Conferences), each linking per the Task 1.1 decision.
@@ -129,9 +148,11 @@ copy is acceptable only as an intermediate commit.
 - **Acceptance:** all sections present, responsive, uses only shared
   components/tokens (no one-off colors).
 
-### Task 2.2 — About page  [x] (Cursor agent)
+### Task 2.2 — About page [x]
+
 **Owner:** Agent C
 **Depends on:** 1.2, 1.3
+
 - Company story, mission/vision, leadership section (use clearly-marked
   placeholder bios/photos if real ones aren't supplied — flag this for the
   client rather than inventing fake credentials).
@@ -139,9 +160,11 @@ copy is acceptable only as an intermediate commit.
   about the company presented as real.
 - **Notes:** Leadership cards marked `[PLACEHOLDER — client to supply]`.
 
-### Task 2.3 — Services pages (Consultancy, HR, Auditing, Marketing)  [x] (Cursor agent)
+### Task 2.3 — Services pages (Consultancy, HR, Auditing, Marketing) [x]
+
 **Owner:** Agent D
 **Depends on:** 1.1, 1.2, 1.3
+
 - One page/section per service line (per Task 1.1's routing decision).
 - Each needs: what the service covers, who it's for, why ACI (differentiator),
   a CTA (contact or subscribe).
@@ -152,18 +175,22 @@ copy is acceptable only as an intermediate commit.
 - **Notes:** Conferences service page is `/services/conferences` in addition
   to the four named here.
 
-### Task 2.4 — Conferences page  [x] (Cursor agent)
+### Task 2.4 — Conferences page [x]
+
 **Owner:** Agent D
 **Depends on:** 1.1, 1.2, 1.3, 1.4
+
 - Explain the conference-hosting offering: format, audience, past/upcoming
   events (placeholder data if none supplied), why attend.
 - CTA to subscribe for conference invites (`<SubscribeForm />`).
 - **Acceptance:** page complete, responsive, subscribe form functional.
 - **Notes:** Event rows are flagged placeholders — no invented history.
 
-### Task 2.5 — Contact page  [x] (Cursor agent)
+### Task 2.5 — Contact page [x]
+
 **Owner:** Agent C
 **Depends on:** 1.2, 1.3, 1.4
+
 - Contact details (address/phone, email — placeholder if not supplied,
   clearly flagged for client to fill in), `<SubscribeForm />`.
 - **Acceptance:** page complete, responsive.
@@ -173,9 +200,11 @@ copy is acceptable only as an intermediate commit.
 
 ## Phase 3 — Integration & Content Data
 
-### Task 3.1 — Structured content extraction  [x] (Cursor agent)
+### Task 3.1 — Structured content extraction [x]
+
 **Owner:** Agent A or whoever finishes Phase 1 first
 **Depends on:** Phase 2 pages using inline copy initially
+
 - Move all page copy (headings, body text, service descriptions) out of
   components and into `src/content/*.ts` typed data files, so content edits
   don't require touching component code.
@@ -185,9 +214,11 @@ copy is acceptable only as an intermediate commit.
   (no TypeScript in package.json). Copy lived in content files from the start
   rather than a second extract pass.
 
-### Task 3.2 — Google Sheets endpoint wiring  [ ] blocked
+### Task 3.2 — Google Sheets endpoint wiring [ ] blocked
+
 **Owner:** whichever agent has the client's Apps Script Web App URL
 **Depends on:** 1.4
+
 - Once the client provisions the real Google Apps Script Web App (deployed
   from a Sheet they own), set `VITE_SUBSCRIBE_ENDPOINT` and remove/bypass
   the Task 1.4 mock.
@@ -200,35 +231,91 @@ copy is acceptable only as an intermediate commit.
 
 ## Phase 4 — QA & Polish
 
-### Task 4.1 — Responsive & cross-browser pass  [~] (Cursor agent)
+### Task 4.1 — Responsive & cross-browser pass [x]
+
 **Owner:** any agent, after Phase 2 complete
 **Depends on:** Phase 2
+
 - Check all pages at mobile/tablet/desktop breakpoints.
 - **Acceptance:** no overflow/broken layouts at 375px, 768px, 1440px widths.
+- **Notes:** All routes screenshotted in headless Chrome at 375 / 768 / 1440.
+  No horizontal overflow at 375px (`scrollWidth == innerWidth`). Mobile nav
+  hamburger appears < md, toggles `aria-expanded`, renders all 5 links.
+  Outstanding (not blocking): `src/assets/logo.jpg` ships at 3508×2480 / 483 KB
+  but displays ~56px tall — downscale before/at deploy (Task 4.3).
 
-### Task 4.2 — Accessibility pass  [~] (Cursor agent)
+### Task 4.2 — Accessibility pass [x]
+
 **Owner:** any agent, after Phase 2 complete
 **Depends on:** Phase 2
+
 - Semantic HTML (proper heading hierarchy, nav landmarks), alt text on all
   images/logo, color contrast check on brand-maroon/gold against
   backgrounds, keyboard navigability of nav + forms.
 - **Acceptance:** no critical issues from an axe/Lighthouse accessibility
   scan.
+- **Notes:** Every page previously started at `<h2>` (no `<h1>`). Added an
+  `as` prop to `SectionHeading` and `headingLevel` to `ServiceCard`; each
+  route now has exactly one `<h1>` and no skipped levels (audited via CDP).
+  `main` / `nav` / `footer` landmarks present on all routes; all `<img>` have
+  `alt`; skip-link + focus-visible rings already in place. Contrast: brand
+  maroon `#982040` on white ≈ 8.9:1, white on maroon ≈ 8.9:1 (AA/AAA);
+  gold `#b0a888` is used only for large text / borders / icons, not body copy.
+  Also fixed a React duplicate-key `console.error` on `/about` (both
+  placeholder leadership cards shared a key) — console is clean on every route.
 
-### Task 4.3 — Build & deploy check
+### Task 4.3 — Build & deploy check [~]
+
 **Owner:** Agent A
 **Depends on:** all above
+
 - `npm run build` clean with no errors/warnings.
 - Deploy to chosen static host; verify all routes work on the deployed URL
   (not just dev server).
 - **Acceptance:** live URL matches local behavior for every route.
 - **Notes:** `public/_redirects` (Netlify) and `vercel.json` added for SPA
-  fallback. Live deploy not done — host not chosen. GitHub Pages would need
-  extra 404 fallback or HashRouter.
+  fallback. `npm run build` verified clean — no errors/warnings; `eslint src`
+  clean. Live deploy still not done — host not chosen. GitHub Pages would need
+  extra 404 fallback or HashRouter. Before deploy: downscale
+  `src/assets/logo.jpg` (483 KB → target < 30 KB) and drop the unused
+  scaffold cruft in `public/` (`favicon.svg`, `icons.svg` are Vite-template
+  leftovers, not ACI brand).
+
+### Task 4.4 — Imagery & motion pass [x]
+
+**Owner:** any agent, after Phase 2
+**Depends on:** Phase 2
+
+- Add photography and light animation so the site does not read as a bare
+  template, without diluting the editorial brand.
+- **Acceptance:** every main page carries relevant imagery; motion respects
+  `prefers-reduced-motion`; build stays clean; no console errors; no stock
+  photo depicts a named person.
+- **Notes:**
+  - 13 Unsplash photos (Unsplash License, commercial-safe) in
+    `src/assets/images/`, registered in `src/content/media.js`. Sources +
+    pre-launch client actions: `src/assets/images/CREDITS.md`.
+  - Home hero → skyline + maroon wash; service cards → per-line images with
+    icon badge (whole card is now one link); credibility strip → faint
+    backdrop; featured-conference → 2-col with photo; `/about` → boardroom
+    band + skyline; `/services/*` → 21:9 image band; `/conferences` → hero
+    photo + **illustrative** gallery (lightbox), captioned as *not* a record
+    of past ACI events; `/contact` → studio photo.
+  - Motion: new `Reveal` (IntersectionObserver + CSS) for scroll fade/lift,
+    hero entrance stagger, slow image zoom-on-hover, nav underline + scroll
+    shadow. All gated behind `prefers-reduced-motion: no-preference`.
+  - New shared components: `Reveal`, `Figure`, `Gallery` (documented in
+    `src/components/shared/README.md`). `Button` gained `light` /
+    `outlineLight` variants.
+  - Verified at 390 / 1280 / 1440 px — no horizontal overflow; gallery
+    lightbox keyboard-navigable; console clean on all routes.
+  - Page weight: ~1.7 MB of images total, lazy-loaded per page (hero eager).
+    Client may swap for owned photography before launch.
 
 ---
 
 ## Task Status Legend
+
 Mark each task as you go: `[ ]` not started · `[~]` in progress · `[x]` done.
 Add the marker and your agent ID inline when you claim/complete a task, e.g.:
 `### Task 2.1 — Home page  [~] (Agent C, started)`

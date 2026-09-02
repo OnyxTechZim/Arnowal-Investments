@@ -5,6 +5,10 @@ const variants = {
     "bg-brand-maroon text-neutral-white hover:bg-brand-maroon-dark focus-visible:ring-brand-gold",
   secondary:
     "border border-brand-gold bg-transparent text-brand-maroon hover:bg-brand-gold-light/40 focus-visible:ring-brand-maroon",
+  light:
+    "bg-neutral-white text-brand-maroon hover:bg-brand-gold-light focus-visible:ring-brand-gold",
+  outlineLight:
+    "border border-neutral-white/60 bg-transparent text-neutral-white hover:bg-neutral-white/10 focus-visible:ring-brand-gold",
 };
 
 export default function Button({
