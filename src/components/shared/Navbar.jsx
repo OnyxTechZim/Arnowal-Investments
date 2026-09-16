@@ -23,7 +23,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link to="/" className="shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onClick={() => setOpen(false)}>
-          <Logo className="h-12 w-auto sm:h-14" />
+          <Logo className="h-24 w-auto sm:h-28" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {site.nav.map((item) => (
@@ -32,7 +32,7 @@ export default function Navbar() {
               to={item.to}
               end={item.to === "/"}
               className={({ isActive }) =>
-                `relative text-sm font-semibold uppercase tracking-[0.14em] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-brand-gold after:transition-all after:duration-300 after:content-[''] hover:after:w-full ${
+                `relative text-base font-semibold uppercase tracking-[0.14em] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-brand-gold after:transition-all after:duration-300 after:content-[''] hover:after:w-full ${
                   isActive
                     ? "text-brand-maroon after:w-full"
                     : "text-neutral-ink/70 hover:text-brand-maroon after:w-0"
@@ -64,7 +64,7 @@ export default function Navbar() {
                   end={item.to === "/"}
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
-                    `block py-2 text-base font-semibold uppercase tracking-wider ${
+                    `block py-2 text-lg font-semibold uppercase tracking-wider ${
                       isActive ? "text-brand-maroon" : "text-neutral-ink"
                     }`
                   }

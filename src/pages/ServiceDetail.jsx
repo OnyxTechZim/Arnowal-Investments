@@ -54,7 +54,7 @@ export default function ServiceDetail() {
       </Reveal>
 
       <div className="mt-10">
-        <Button to="/contact">{service.cta}</Button>
+        <Button arrow to="/contact">{service.cta}</Button>
       </div>
     </div>
   );

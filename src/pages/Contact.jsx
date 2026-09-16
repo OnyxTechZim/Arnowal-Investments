@@ -16,9 +16,6 @@ export default function Contact() {
         <Reveal className="space-y-6">
           <Card>
             <h2 className="font-heading text-2xl text-brand-maroon">Details</h2>
-            <p className="mt-3 text-sm" role="note">
-              {contact.detailsNotice}
-            </p>
             <dl className="mt-6 space-y-3 text-sm">
               <div>
                 <dt className="uppercase tracking-wider text-brand-gold">Email</dt>

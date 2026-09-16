@@ -2,12 +2,10 @@ export const contact = {
   heading: "Contact",
   intro:
     "Write to us about a live brief, a hosting enquiry, or the invite list. The form below is for newsletter and conference notices; use the details for a direct conversation.",
-  detailsNotice:
-    "[PLACEHOLDER — client to supply] Address, phone, and email below are not real ACI contact details. Replace before launch.",
   details: {
-    email: "[email to be supplied]",
-    phone: "[phone to be supplied]",
-    address: "[street / city / country to be supplied]",
+    email: "onyxtechzim@gmail.com",
+    phone: "+263 71 488 2607",
+    address: "Bulawayo, Zimbabwe",
   },
   subscribe: {
     heading: "Subscribe",

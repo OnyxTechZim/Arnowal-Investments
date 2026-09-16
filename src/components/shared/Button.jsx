@@ -1,3 +1,4 @@
+import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const variants = {
@@ -17,22 +18,34 @@ export default function Button({
   to,
   type = "button",
   disabled,
+  arrow = false,
   className = "",
   ...rest
 }) {
-  const classes = `inline-flex items-center justify-center px-6 py-3 text-sm font-semibold tracking-wide uppercase clip-path-none transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-60 ${variants[variant]} ${className}`;
+  const classes = `group/btn inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide uppercase clip-path-none transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-60 ${variants[variant]} ${className}`;
+  const content = (
+    <>
+      {children}
+      {arrow ? (
+        <ChevronRight
+          aria-hidden="true"
+          className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+        />
+      ) : null}
+    </>
+  );
 
   if (to) {
     return (
       <Link to={to} className={classes} {...rest}>
-        {children}
+        {content}
       </Link>
     );
   }
 
   return (
     <button type={type} disabled={disabled} className={classes} {...rest}>
-      {children}
+      {content}
     </button>
   );
 }

@@ -15,7 +15,8 @@ import Button from "../components/shared/Button.jsx";
 <Button variant="secondary" type="submit">Subscribe</Button>
 ```
 Variants: `primary` (default), `secondary`, `light` / `outlineLight` (for use
-on dark or image backgrounds, e.g. the home hero).
+on dark or image backgrounds, e.g. the home hero). `arrow` appends a chevron
+that nudges right on hover — reserve for primary conversion CTAs.
 
 ## `SectionHeading`
 ```jsx
@@ -59,6 +60,19 @@ import Figure from "../components/shared/Figure.jsx";
 ```
 Brand-framed image with slow zoom-on-hover. `wash` adds a maroon tint;
 `priority` loads eagerly (default lazy).
+
+## `Carousel`
+```jsx
+import Carousel from "../components/shared/Carousel.jsx";
+<Carousel ariaLabel="ACI service lines">
+  {items.map((item) => <Card key={item.id}>…</Card>)}
+</Carousel>
+```
+Horizontal snap-scroll row — native drag/swipe/trackpad, plus arrow buttons
+that disable at each end and edge fades that hide once scrolled fully.
+`itemWidthClass` sets slide width (default ~1/1.2/2/3 cards depending on
+breakpoint); `edgeFadeFrom` must match the section's background color (e.g.
+`from-neutral-gray`) — default assumes white.
 
 ## `Gallery`
 ```jsx

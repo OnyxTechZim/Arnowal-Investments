@@ -90,7 +90,7 @@ export default function Conferences() {
           <SubscribeForm source="conferences" />
         </div>
         <div className="mt-6 text-center">
-          <Button variant="secondary" to="/services/conferences">
+          <Button variant="secondary" arrow to="/services/conferences">
             Hosting as a service
           </Button>
         </div>

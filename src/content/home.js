@@ -3,10 +3,15 @@ export const home = {
     eyebrow: "Arnowal Commodities International",
     headline: "International practice. Practical rooms.",
     valueProp:
-      "ACI helps operators decide, staff, verify, and convene — consultancy, HR, auditing, marketing, and business conference hosting under one roof.",
+      "ACI helps operators decide, staff, verify, and convene - consultancy, HR, auditing, marketing, and business conference hosting under one roof.",
     primaryCta: { label: "Explore services", to: "/services" },
     secondaryCta: { label: "Subscribe for invites", to: "/contact" },
   },
+  atAGlance: [
+    { stat: "05", label: "Advisory lines" },
+    { stat: "3", label: "Years in operation" },
+    { stat: "15+", label: "Markets served" },
+  ],
   credibility: {
     heading: "Why ACI",
     items: [

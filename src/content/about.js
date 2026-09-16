@@ -17,18 +17,17 @@ export const about = {
   },
   leadership: {
     heading: "Leadership",
-    notice:
-      "[PLACEHOLDER — client to supply] Leadership names, roles, photos, and biographies have not been provided. The cards below are structural placeholders only. Do not treat the names or credentials as real.",
+    notice: "Dummy placeholder data — replace with real leadership bios before launch.",
     people: [
       {
-        name: "[Name to be supplied]",
-        role: "[Role to be supplied]",
-        bio: "[Biography to be supplied by ACI. No invented credentials.]",
+        name: "Jason Moyo",
+        role: "Managing Director",
+        bio: "Dummy bio text. Replace with a real biography before launch.",
       },
       {
-        name: "[Name to be supplied]",
-        role: "[Role to be supplied]",
-        bio: "[Biography to be supplied by ACI. No invented credentials.]",
+        name: "John Doe",
+        role: "Director of Operations",
+        bio: "Dummy bio text. Replace with a real biography before launch.",
       },
     ],
   },
