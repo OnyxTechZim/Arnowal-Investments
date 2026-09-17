@@ -1,47 +1,34 @@
-import Card from "../components/shared/Card.jsx";
-import Figure from "../components/shared/Figure.jsx";
+import { Mail, MapPin, Phone } from "lucide-react";
+import ContactForm from "../components/shared/ContactForm.jsx";
 import Reveal from "../components/shared/Reveal.jsx";
-import SectionHeading from "../components/shared/SectionHeading.jsx";
-import SubscribeForm from "../components/shared/SubscribeForm.jsx";
 import { contact } from "../content/contact.js";
-import { media } from "../content/media.js";
+
+const detailItems = [
+  { Icon: Phone, text: contact.details.phone },
+  { Icon: Mail, text: contact.details.email },
+  { Icon: MapPin, text: contact.details.address },
+];
 
 export default function Contact() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <SectionHeading as="h1" eyebrow="Get in touch" title={contact.heading}>
-        {contact.intro}
-      </SectionHeading>
-      <div className="mt-12 grid gap-10 md:grid-cols-2">
-        <Reveal className="space-y-6">
-          <Card>
-            <h2 className="font-heading text-2xl text-brand-maroon">Details</h2>
-            <dl className="mt-6 space-y-3 text-sm">
-              <div>
-                <dt className="uppercase tracking-wider text-brand-gold">Email</dt>
-                <dd>{contact.details.email}</dd>
-              </div>
-              <div>
-                <dt className="uppercase tracking-wider text-brand-gold">Phone</dt>
-                <dd>{contact.details.phone}</dd>
-              </div>
-              <div>
-                <dt className="uppercase tracking-wider text-brand-gold">Address</dt>
-                <dd>{contact.details.address}</dd>
-              </div>
-            </dl>
-          </Card>
-          <Figure
-            src={media.deskWork}
-            alt="A focused work session at a studio desk"
-            ratio="16 / 9"
-            wash
-          />
+    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+        <Reveal>
+          <h1 className="font-heading text-4xl text-brand-maroon sm:text-5xl">{contact.heading}</h1>
+          <p className="mt-4 max-w-md leading-relaxed text-neutral-ink/80">{contact.intro}</p>
+          <ul className="mt-8 space-y-4">
+            {detailItems.map(({ Icon, text }) => (
+              <li key={text} className="flex items-center gap-3 text-sm">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-brand-gold-light text-brand-maroon">
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </span>
+                {text}
+              </li>
+            ))}
+          </ul>
         </Reveal>
-        <Reveal as="div" delay={90}>
-          <h2 className="font-heading text-2xl text-brand-maroon">{contact.subscribe.heading}</h2>
-          <p className="mt-2 mb-6 text-sm leading-relaxed text-neutral-ink/80">{contact.subscribe.body}</p>
-          <SubscribeForm source="contact" />
+        <Reveal delay={90}>
+          <ContactForm />
         </Reveal>
       </div>
     </div>

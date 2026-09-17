@@ -3,7 +3,6 @@ import Card from "../components/shared/Card.jsx";
 import Gallery from "../components/shared/Gallery.jsx";
 import Reveal from "../components/shared/Reveal.jsx";
 import SectionHeading from "../components/shared/SectionHeading.jsx";
-import SubscribeForm from "../components/shared/SubscribeForm.jsx";
 import { conferences } from "../content/conferences.js";
 import { conferenceGallery, media } from "../content/media.js";
 
@@ -82,18 +81,10 @@ export default function Conferences() {
         </div>
       </section>
 
-      <section className="mx-auto mt-16 max-w-xl">
-        <SectionHeading title={conferences.subscribe.heading} align="center">
-          {conferences.subscribe.body}
-        </SectionHeading>
-        <div className="mt-8">
-          <SubscribeForm source="conferences" />
-        </div>
-        <div className="mt-6 text-center">
-          <Button variant="secondary" arrow to="/services/conferences">
-            Hosting as a service
-          </Button>
-        </div>
+      <section className="mx-auto mt-16 max-w-xl text-center">
+        <Button variant="secondary" arrow to="/services/conferences">
+          Hosting as a service
+        </Button>
       </section>
     </div>
   );

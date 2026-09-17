@@ -46,7 +46,7 @@ export default function SubscribeForm({ source }) {
     <form onSubmit={onSubmit} className="flex flex-col gap-3" noValidate>
       <div>
         <label htmlFor={`sub-name-${fieldId}`} className="block text-xs font-semibold uppercase tracking-wider">
-          Name <span className="font-normal normal-case tracking-normal text-neutral-ink/60">(optional)</span>
+          Name <span className="font-normal normal-case tracking-normal opacity-60">(optional)</span>
         </label>
         <input
           id={`sub-name-${fieldId}`}
@@ -90,12 +90,7 @@ export default function SubscribeForm({ source }) {
       <Button type="submit" disabled={status === "loading"}>
         {status === "loading" ? "Sending…" : "Subscribe"}
       </Button>
-      {!import.meta.env.VITE_SUBSCRIBE_ENDPOINT ? (
-        <p className="text-xs text-neutral-ink/50">
-          Endpoint not wired — submissions are mocked in the browser console until{" "}
-          <code>VITE_SUBSCRIBE_ENDPOINT</code> is set.
-        </p>
-      ) : null}
+     
     </form>
   );
 }

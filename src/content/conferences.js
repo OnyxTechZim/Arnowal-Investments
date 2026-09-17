@@ -25,22 +25,8 @@ export const conferences = {
   },
   events: {
     heading: "Past and upcoming",
-    notice:
-      "[PLACEHOLDER — client to supply] No confirmed conference history, dates, or venues have been provided. The rows below are layout only.",
-    items: [
-      {
-        status: "Upcoming",
-        title: "[Event title to be supplied]",
-        when: "[Date / city to be supplied]",
-        note: "Details will be published when ACI confirms the programme.",
-      },
-      {
-        status: "Past",
-        title: "[Past event to be supplied]",
-        when: "[Date / city to be supplied]",
-        note: "Do not invent a conference history. Replace this row with a real event or remove it.",
-      },
-    ],
+    notice: "Dates and venues will appear here as ACI confirms its conference programme.",
+    items: [],
   },
   subscribe: {
     heading: "Invite notices",

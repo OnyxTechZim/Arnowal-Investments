@@ -4,7 +4,6 @@ import GlobeMotif from "../components/shared/GlobeMotif.jsx";
 import Reveal from "../components/shared/Reveal.jsx";
 import SectionHeading from "../components/shared/SectionHeading.jsx";
 import ServiceCard from "../components/shared/ServiceCard.jsx";
-import SubscribeForm from "../components/shared/SubscribeForm.jsx";
 import { home } from "../content/home.js";
 import { media, serviceImages } from "../content/media.js";
 import { services } from "../content/services.js";
@@ -48,7 +47,7 @@ export default function Home() {
       </section>
 
       <section className="border-b border-brand-gold-light bg-neutral-white">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 sm:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:grid-cols-3">
           {home.atAGlance.map((item, i) => (
             <Reveal
               key={item.label}
@@ -62,14 +61,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
         <Reveal as="div">
           <SectionHeading eyebrow="Practice" title="Five lines of work">
-            Each card opens a dedicated page — not a renamed paragraph. Drag, swipe, or use the arrows.
+            Advisory, people, control, marketing, and convening — each with its own dedicated page.
           </SectionHeading>
         </Reveal>
         <div className="mt-12">
-          <Carousel ariaLabel="ACI service lines">
+          <Carousel ariaLabel="ACI service lines" autoPlay>
             {services.map((s, i) => (
               <Reveal key={s.slug} delay={i * 60} className="h-full">
                 <ServiceCard title={s.title} summary={s.summary} to={s.path} icon={s.icon} image={serviceImages[s.slug]} />
@@ -86,7 +85,7 @@ export default function Home() {
           loading="lazy"
           className="absolute inset-0 -z-10 h-full w-full object-cover opacity-10"
         />
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
           <Reveal>
             <SectionHeading eyebrow="Credibility" title={home.credibility.heading} tone="onDark" />
           </Reveal>
@@ -101,7 +100,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-6xl px-4 pt-24 pb-28 sm:px-6 sm:pt-32 sm:pb-36">
         <div className="grid items-stretch gap-8 border border-brand-gold-light bg-neutral-gray md:grid-cols-2">
           <Reveal className="flex flex-col justify-center p-8 sm:p-12">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-maroon-dark">{home.featuredConference.eyebrow}</p>
@@ -121,17 +120,6 @@ export default function Home() {
             />
           </div>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-xl px-4 pb-20 sm:px-6">
-        <Reveal>
-          <SectionHeading title={home.subscribe.heading} align="center">
-            {home.subscribe.body}
-          </SectionHeading>
-          <div className="mt-8">
-            <SubscribeForm source="home" />
-          </div>
-        </Reveal>
       </section>
     </>
   );

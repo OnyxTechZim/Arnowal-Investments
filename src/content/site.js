@@ -1,7 +1,7 @@
 export const site = {
   legalName: "Arnowal Commodities International",
   shortName: "ACI",
-  tagline: "Advisory, people, control, and convening — for operators who work across borders.",
+  tagline: "Advisory, people, control, and convening....",
   nav: [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
@@ -10,7 +10,9 @@ export const site = {
     { to: "/contact", label: "Contact" },
   ],
   social: [
-    { label: "LinkedIn", href: "#", placeholder: true },
-    { label: "X", href: "#", placeholder: true },
+    { label: "LinkedIn", icon: "linkedin", href: "#" },
+    { label: "X", icon: "x", href: "#" },
+    { label: "Facebook", icon: "facebook", href: "#" },
+    { label: "Instagram", icon: "instagram", href: "#" },
   ],
 };

@@ -1,4 +1,4 @@
-import logoSrc from "../../assets/logo.jpg";
+import logoSrc from "../../assets/logo-no-bg.png";
 
 /**
  * Raster wordmark from the supplied logo files (no SVG source was available).

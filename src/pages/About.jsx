@@ -1,3 +1,4 @@
+import { User } from "lucide-react";
 import Card from "../components/shared/Card.jsx";
 import Figure from "../components/shared/Figure.jsx";
 import Reveal from "../components/shared/Reveal.jsx";
@@ -44,15 +45,12 @@ export default function About() {
 
         <section className="mt-16">
           <SectionHeading title={about.leadership.heading} />
-          <p className="mt-4 max-w-3xl border-l-4 border-brand-gold bg-neutral-gray px-4 py-3 text-sm" role="note">
-            {about.leadership.notice}
-          </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {about.leadership.people.map((person, i) => (
               <Reveal key={i} delay={i * 90}>
                 <Card>
-                  <div className="mb-4 flex h-28 items-center justify-center bg-neutral-gray text-xs uppercase tracking-wider text-neutral-ink/50">
-                    [Photo to be supplied]
+                  <div className="mb-4 flex h-28 w-28 items-center justify-center rounded-full bg-neutral-gray text-brand-maroon/40">
+                    <User className="h-12 w-12" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <h3 className="font-heading text-xl text-brand-maroon">{person.name}</h3>
                   <p className="text-sm text-brand-gold">{person.role}</p>

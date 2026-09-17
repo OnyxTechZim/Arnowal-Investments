@@ -6,16 +6,24 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
  * mouse/keyboard). Each child is wrapped in a fixed-width, height-stretched
  * slide. `edgeFadeFrom` should match the section background the carousel
  * sits on (default assumes a white section).
+ *
+ * `autoPlay` advances one card at a time on a timer, looping back to the
+ * start at the end. It pauses on hover/focus/touch so a viewer reading a
+ * card doesn't have it slide away, and it's skipped entirely for
+ * prefers-reduced-motion.
  */
 export default function Carousel({
   children,
   itemWidthClass = "w-[82%] sm:w-[46%] lg:w-[31%]",
   ariaLabel,
   edgeFadeFrom = "from-neutral-white",
+  autoPlay = false,
+  autoPlayInterval = 4500,
 }) {
   const trackRef = useRef(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(true);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const el = trackRef.current;
@@ -42,10 +50,33 @@ export default function Carousel({
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   }
 
+  useEffect(() => {
+    if (!autoPlay || paused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => {
+      const el = trackRef.current;
+      if (!el) return;
+      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 4) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        scrollByCard(1);
+      }
+    }, autoPlayInterval);
+    return () => clearInterval(id);
+  }, [autoPlay, paused, autoPlayInterval, children]);
+
   const items = Array.isArray(children) ? children : [children];
 
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      onMouseEnter={() => autoPlay && setPaused(true)}
+      onMouseLeave={() => autoPlay && setPaused(false)}
+      onFocus={() => autoPlay && setPaused(true)}
+      onBlur={() => autoPlay && setPaused(false)}
+      onTouchStart={() => autoPlay && setPaused(true)}
+      onTouchEnd={() => autoPlay && setPaused(false)}
+    >
       <div
         ref={trackRef}
         role="group"

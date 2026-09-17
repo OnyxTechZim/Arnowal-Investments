@@ -17,22 +17,21 @@ export const about = {
   },
   leadership: {
     heading: "Leadership",
-    notice: "Dummy placeholder data — replace with real leadership bios before launch.",
     people: [
       {
         name: "Jason Moyo",
         role: "Managing Director",
-        bio: "Dummy bio text. Replace with a real biography before launch.",
+        bio: "Full biography coming soon.",
       },
       {
         name: "John Doe",
         role: "Director of Operations",
-        bio: "Dummy bio text. Replace with a real biography before launch.",
+        bio: "Full biography coming soon.",
       },
     ],
   },
   reach: {
     heading: "Global reach",
-    body: "The AW monogram sits on a globe for a reason: ACI is built for work that crosses jurisdictions — trade, talent, reporting, and gatherings. Specific country offices and registration details will be published here once the client supplies them.",
+    body: "The AW monogram sits on a globe for a reason: ACI is built for work that crosses jurisdictions — trade, talent, reporting, and gatherings. Country offices and registration details will be published here as they are confirmed.",
   },
 };
