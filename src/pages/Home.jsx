@@ -18,18 +18,20 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-brand-maroon-dark text-neutral-white clip-angle-br">
-        <img
-          src={media.heroSkyline}
-          alt=""
-          fetchPriority="high"
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-right opacity-55"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-linear-to-r from-brand-maroon-dark via-brand-maroon-dark/92 to-brand-maroon-dark/25"
-        />
-        <GlobeMotif className="pointer-events-none absolute -right-10 top-4 -z-10 h-104 w-104 text-brand-gold/25" />
+      <section className="relative isolate bg-brand-maroon-dark text-neutral-white clip-angle-br">
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <img
+            src={media.heroSkyline}
+            alt=""
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover object-right opacity-55"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-linear-to-r from-brand-maroon-dark via-brand-maroon-dark/92 to-brand-maroon-dark/25"
+          />
+          <GlobeMotif className="pointer-events-none absolute -right-10 top-4 h-104 w-104 text-brand-gold/25" />
+        </div>
         <div className="hero-rise mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
           <p className="text-base font-semibold uppercase tracking-[0.28em] text-brand-gold-light">{home.hero.eyebrow}</p>
           <h1 className="mt-4 max-w-3xl font-heading text-4xl leading-[1.05] sm:text-6xl">
