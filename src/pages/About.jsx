@@ -1,6 +1,5 @@
-import { User } from "lucide-react";
-import Card from "../components/shared/Card.jsx";
 import Figure from "../components/shared/Figure.jsx";
+import LeadershipPortrait from "../components/shared/LeadershipPortrait.jsx";
 import Reveal from "../components/shared/Reveal.jsx";
 import SectionHeading from "../components/shared/SectionHeading.jsx";
 import { about } from "../content/about.js";
@@ -45,17 +44,37 @@ export default function About() {
 
         <section className="mt-16">
           <SectionHeading title={about.leadership.heading} />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {about.leadership.people.map((person, i) => (
-              <Reveal key={i} delay={i * 90}>
-                <Card>
-                  <div className="mb-4 flex h-28 w-28 items-center justify-center rounded-full bg-neutral-gray text-brand-maroon/40">
-                    <User className="h-12 w-12" strokeWidth={1.5} aria-hidden="true" />
+              <Reveal key={person.name} delay={i * 90}>
+                <article className="h-full overflow-hidden border border-brand-gold-light bg-neutral-white text-center shadow-[0_8px_24px_rgba(26,26,26,0.08)] transition-shadow hover:shadow-[0_12px_30px_rgba(26,26,26,0.14)]">
+                  <div className="h-20 bg-brand-maroon-dark" aria-hidden="true" />
+                  <div className="-mt-16 flex justify-center">
+                    <LeadershipPortrait name={person.name} variant={i} />
                   </div>
-                  <h3 className="font-heading text-xl text-brand-maroon">{person.name}</h3>
-                  <p className="text-sm text-brand-gold">{person.role}</p>
-                  <p className="mt-2 text-sm leading-relaxed">{person.bio}</p>
-                </Card>
+                  <div className="px-6 pb-7 pt-4">
+                    <h3 className="font-heading text-xl text-brand-maroon">{person.name}</h3>
+                    <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-brand-gold">{person.role}</p>
+                    <span className="gold-rule mx-auto mt-4 block w-16" />
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-16 border-t border-brand-gold-light pt-12">
+          <SectionHeading title={about.values.heading}>{about.values.intro}</SectionHeading>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {about.values.items.map((value, i) => (
+              <Reveal key={value.title} delay={i * 70}>
+                <article className="h-full border-l-4 border-brand-gold bg-neutral-gray p-6 transition-colors hover:bg-brand-gold-light/25">
+                  <p className="font-heading text-4xl leading-none text-brand-maroon/25" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-4 font-heading text-xl text-brand-maroon">{value.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-ink/80">{value.body}</p>
+                </article>
               </Reveal>
             ))}
           </div>

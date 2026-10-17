@@ -1,3 +1,7 @@
+import { isValidEmail } from "./email.js";
+
+export { isValidEmail };
+
 export async function submitSubscribe({ name, email, source }) {
   const payload = {
     name: name?.trim() || "",
@@ -28,8 +32,4 @@ export async function submitSubscribe({ name, email, source }) {
   }
 
   return { ok: true, mocked: false };
-}
-
-export function isValidEmail(value) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }

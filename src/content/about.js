@@ -15,18 +15,46 @@ export const about = {
     heading: "Vision",
     body: "A practice known for rooms and recommendations that operators actually use — not for volume of slides, not for generic “global excellence” language.",
   },
+  values: {
+    heading: "Values",
+    intro: "The principles that shape how we advise, work with people, and deliver.",
+    items: [
+      {
+        title: "Integrity",
+        body: "We protect trust through independent judgement, careful handling of information, and advice that stands up to scrutiny.",
+      },
+      {
+        title: "Honesty",
+        body: "We speak plainly about risks, trade-offs, and what the evidence does — and does not — support.",
+      },
+      {
+        title: "Accountability",
+        body: "We take ownership of our work and stay focused on practical outcomes, not just recommendations.",
+      },
+      {
+        title: "Respectful partnership",
+        body: "We listen to the people closest to the work and respect the cultures and contexts shaping each market.",
+      },
+      {
+        title: "Practicality",
+        body: "We turn strategy and insight into clear next steps that teams can use.",
+      },
+    ],
+  },
   leadership: {
     heading: "Leadership",
     people: [
       {
-        name: "Jason Moyo",
+        name: "Walter Mutero",
         role: "Managing Director",
-        bio: "Full biography coming soon.",
       },
       {
-        name: "John Doe",
-        role: "Director of Operations",
-        bio: "Full biography coming soon.",
+        name: "Brilliant Moyo",
+        role: "Marketing Director",
+      },
+      {
+        name: "Munashe J Mutero",
+        role: "Commercial and Operations Director",
       },
     ],
   },

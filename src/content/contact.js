@@ -1,10 +1,10 @@
 export const contact = {
   heading: "Contact",
   intro:
-    "Write to us about a live brief, a hosting enquiry, or the invite list. The form below is for newsletter and conference notices; use the details for a direct conversation.",
+    "Send us a note about a live brief, a hosting enquiry, or an upcoming event. Your message will go directly to our team.",
   details: {
-    email: "onyxtechzim@gmail.com",
-    phone: "+263 71 488 2607",
+    email: "info@arnowal.co.zw",
+    phone: "+263 78 150 8738",
     address: "Bulawayo, Zimbabwe",
   },
   subscribe: {

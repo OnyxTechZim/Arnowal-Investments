@@ -54,7 +54,7 @@ export default function SubscribeForm({ source }) {
           autoComplete="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-1 w-full border border-brand-gold-light bg-neutral-white px-3 py-2 text-sm focus:border-brand-maroon focus:outline-none focus:ring-1 focus:ring-brand-maroon"
+          className="mt-1 w-full border border-brand-gold-light bg-neutral-white px-3 py-2 text-sm text-neutral-ink focus:border-brand-maroon focus:outline-none focus:ring-1 focus:ring-brand-maroon"
         />
       </div>
       <div>
@@ -74,7 +74,7 @@ export default function SubscribeForm({ source }) {
             setEmail(e.target.value);
             if (error) setError("");
           }}
-          className="mt-1 w-full border border-brand-gold-light bg-neutral-white px-3 py-2 text-sm focus:border-brand-maroon focus:outline-none focus:ring-1 focus:ring-brand-maroon"
+          className="mt-1 w-full border border-brand-gold-light bg-neutral-white px-3 py-2 text-sm text-neutral-ink focus:border-brand-maroon focus:outline-none focus:ring-1 focus:ring-brand-maroon"
         />
         {error ? (
           <p id={`sub-email-error-${fieldId}`} className="mt-1 text-sm text-brand-maroon" role="alert">

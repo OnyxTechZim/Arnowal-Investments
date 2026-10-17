@@ -12,25 +12,19 @@ export async function submitContactMessage({ firstName, lastName, email, phone, 
     timestamp: new Date().toISOString(),
   };
 
-  const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT;
-
-  if (!endpoint) {
-    if (import.meta.env.DEV) {
-      console.info("[contact form mock — VITE_CONTACT_ENDPOINT unset]", payload);
-    }
-    await new Promise((r) => setTimeout(r, 500));
-    return { ok: true, mocked: true };
-  }
-
-  const res = await fetch(endpoint, {
+  const res = await fetch("/api/contact.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
 
+  const result = await res.json();
   if (!res.ok) {
-    throw new Error(`Contact request failed (${res.status})`);
+    throw new Error(result.error || `Contact request failed (${res.status}).`);
+  }
+  if (result.ok !== true) {
+    throw new Error("The message could not be sent. Please try again.");
   }
 
-  return { ok: true, mocked: false };
+  return { ok: true };
 }

@@ -1,5 +1,17 @@
 # React + Vite
 
+## Contact form email
+
+The contact form posts to `public/api/contact.php`, which is included in the
+production build and sends enquiries to `info@arnowal.co.zw` with PHP's `mail()`.
+The cPanel hosting account must support PHP and have outgoing mail enabled. Set
+up the domain's SPF and DKIM records in cPanel to improve delivery. If PHP mail
+is disabled by the host, enable it with the host or configure an authenticated
+SMTP service before expecting the form to deliver messages.
+
+The API runs on the deployed cPanel site; Vite's local development server does
+not execute PHP, so test delivery from the deployed site.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
